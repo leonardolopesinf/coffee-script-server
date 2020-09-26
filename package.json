@@ -1,0 +1,26 @@
+{
+  "name": "coffee-script-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/leonardolopesinf/coffee-script-server.git",
+  "author": "Leonardo Lopes <leonardolopesinf@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build:coffee": "coffee --bare --no-header --compile --output lib/ src/app.coffee",
+    "coffee": "coffee --bare --no-header --compile --watch --output lib/ src/index.coffee",
+    "flow": "yarn build:coffee && flow",
+    "prestart": "babel -d ./lib --plugins @babel/plugin-transform-modules-commonjs ./lib",
+    "start": "node lib/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "coffeescript": "^2.5.1",
+    "flow-bin": "^0.134.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.3.3"
+  }
+}
